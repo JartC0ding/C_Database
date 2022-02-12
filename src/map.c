@@ -1,5 +1,6 @@
 #pragma once
 
+#include "utils.c"
 #include <stdbool.h>
 #include "hash/hash.c"
 
@@ -33,7 +34,17 @@ bool MAP_ADD(char* key, void* data, BASE* base) {
 		return false;
 	}
 
+	// cast the data to int temporarly
+	int* d = (int*) data;
+	// casts all the data to ints to change values in it
+	int** a = (int*) base->storage;
+	// set data
+	a[idx] = d;
 	
+	// cast back to void*
+	base->storage = (void*) a;
+	base->occupied[idx] = true;
+	return true;
 }
 
 /*

@@ -57,4 +57,15 @@ bool START_DATA_BASE(char* name) {
 
 int main() {
     BASE* my_base = INIT_DATA_BASE(50, "TestBase", false);
+
+    char* t = "Test";
+    bool test_1 = MAP_ADD("Hey", (void*) t, my_base);
+    bool test_2 = MAP_ADD("Hey", (void*) t, my_base);
+
+    if (test_1 == true) {
+        printf("Successfull first assignment\n");
+    }
+    if (test_2 == false) {
+        printf("Succesfully detected allready occupied");
+    }
 }

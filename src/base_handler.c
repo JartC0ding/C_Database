@@ -2,13 +2,7 @@
 
 #include <stdio.h>
 #include "map.c"
-
-typedef struct {
-    unsigned long long int LENGTH;
-    char* NAME;
-    void* storage;
-    bool* occupied;
-} BASE;
+#include "utils.c"
 
 BASE* db_startup_new_clear(BASE* base) {
     // Set the array of void* to fixed size
